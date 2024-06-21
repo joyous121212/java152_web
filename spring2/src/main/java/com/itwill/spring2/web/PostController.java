@@ -14,6 +14,7 @@ import com.itwill.spring2.dto.PostListDto;
 import com.itwill.spring2.dto.PostSearchDto;
 import com.itwill.spring2.dto.PostUpdateDto;
 import com.itwill.spring2.repository.Post;
+import com.itwill.spring2.service.CommentService;
 import com.itwill.spring2.service.PostService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PostController {
 	
 	private final PostService postService; // 생성자에 의한 의존성 주입
+	private final CommentService commentService;
 	
 	@GetMapping("/list")
 	public void list(Model model) {
@@ -89,10 +91,11 @@ public class PostController {
 //	}
 	
 	@GetMapping("/delete")
-	public String delete(@RequestParam(name="id") int id) {
+	public String delete(@RequestParam(name="id") int id, @RequestParam(name="id") int postId) {
 		log.debug("delete(id={})", id);
 		
-		// TODO: 포스트 아이디에 달려있는 댓글 먼저 삭제
+		// 포스트 아이디에 달려있는 댓글 먼저 삭제
+		commentService.deleteByPostId(postId);
 		
 		// 서비스 컴포넌트의 메서드를 호출해서 데이터베이스의 테이블에서 해당 아이디의 글을 삭제.
 		postService.delete(id);

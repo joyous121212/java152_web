@@ -93,4 +93,13 @@ public class CommentRestController {
     	
     	return ResponseEntity.ok(result);
     }
+    
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<Integer> deleteCommentByPostId(@PathVariable int postId) {
+    	log.debug("deleteCommentByPostId(postId={})", postId);
+    	
+    	int result = commentService.deleteByPostId(postId);
+    	
+    	return ResponseEntity.ok(result);
+    }
 }
