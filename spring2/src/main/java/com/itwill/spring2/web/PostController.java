@@ -33,7 +33,6 @@ public class PostController {
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.debug("list()");
-		
 		// 서비스 컴포넌트의 메서드를 호출, 포스트 목록을 읽어옴 -> 뷰에 전달.
 		List<PostListDto> list = postService.read();
 		model.addAttribute("posts", list);

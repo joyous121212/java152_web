@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function deleteComment(event) {
         // 이벤트 리스너 콜백의 아규먼트 event 객체는 target 속성을 가지고 있음.
         console.log(event.target); // 이벤트가 발생한 요소(타겟)
-        const id = event.target.getAttribute('data-id'); // HTML 요소의 속상 값 찾기
+        const id = event.target.getAttribute('data-id'); // HTML 요소의 속성 값 찾기
         
         // 삭제 여부 확인
         const result = confirm('댓글을 정말 삭제할까요?');
