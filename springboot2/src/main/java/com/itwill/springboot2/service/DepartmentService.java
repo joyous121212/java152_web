@@ -24,9 +24,9 @@ public class DepartmentService {
 		return deptRepo.findAll();
 	}
 	
-	public Optional<Department> read(int id) {
+	public Department read(int id) {
 		log.info("read(id={})", id);
 		
-		return deptRepo.findById(id);
+		return deptRepo.findById(id).orElseThrow();
 	}
 }

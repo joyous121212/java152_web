@@ -36,8 +36,8 @@ public class DepartmentController {
 	public String deptDetails(@PathVariable(name="id") int id, Model model) {
 		log.info("deptDetails(id={})", id);
 		
-		Optional<Department> dept = deptSvc.read(id);
-		model.addAttribute("dept", dept.get());
+		Department dept = deptSvc.read(id);
+		model.addAttribute("dept", dept);
 		
 		return "department/details";
 	}

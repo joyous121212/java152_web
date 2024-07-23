@@ -36,11 +36,11 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/details/{id}")
-	public String employeeDetails(@PathVariable(name="id") int id, Model model) {
+	public String employeeDetails(@PathVariable(name="id") Integer id, Model model) {
 		log.info("employeeDetails(id={})", id);
 		
-		Optional<Employee> emp = empSvc.read(id);
-		model.addAttribute("emp", emp.get());
+		Employee emp = empSvc.read(id);
+		model.addAttribute("emp", emp);
 		
 		return "employee/details";
 	}

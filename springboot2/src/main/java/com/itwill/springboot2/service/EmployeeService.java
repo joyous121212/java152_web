@@ -26,9 +26,9 @@ public class EmployeeService {
 		return empRepo.findAll();
 	}
 	
-	public Optional<Employee> read(int id) {
+	public Employee read(int id) {
 		log.info("read(id={})", id);
 		
-		return empRepo.findById(id);
+		return empRepo.findById(id).orElseThrow();
 	}
 }
