@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="UTF-8">
-		<title>Spring Boot 3</title>
+		<th:block th:replace="~{/layout/fragments :: documentHeader}"></th:block>
 	</head>
 	<body>
-	   <div th:replace="~{/layout/fragments :: pageHeader('부서 목록 페이지')}"></div>
+	   <th:block th:replace="~{/layout/fragments :: pageHeader('부서 목록')}"></th:block>
        
        <main>
         <table>
@@ -37,5 +36,6 @@
             </tbody>
         </table>
        </main>
+       <th:block th:replace="~{/layout/fragments :: bootstrapJS}"></th:block>
 	</body>
 </html>
